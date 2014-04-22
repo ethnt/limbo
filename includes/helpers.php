@@ -32,11 +32,56 @@ function get_by_id($table, $id) {
  * Get all of the rows in a table.
  *
  * @param  string $table Table to fetch the rows from.
+ * @param  string $sort  The sort you're using (e.g., `timestamp asc`).
  *
  * @return array         Array of results.
  */
-function get_all($table) {
-  $query = run('SELECT * FROM ' . $table . ';');
+function get_all($table, $sort = null) {
+  $sql = 'SELECT * FROM ' . $table;
+
+  if (is_null($sort)) {
+    $sql = $sql . ';';
+  } else {
+    $sql = $sql . ' order by ' . $sort . ';';
+  }
+
+  $query = run($sql);
+
+  $results = array();
+
+  while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+    array_push($results, $result);
+  }
+
+  return $results;
+}
+
+/**
+ * Get a subset of a table's rows based on the parameters.
+ *
+ * @param  string $table     Table to fetch the rows from.
+ * @param  array $parameters An associative array that designates the query,
+ *                           (e.g., `array('name' => 'Foobar')`).
+ * @param  string $sort      The sort you're using (e.g., `timestamp asc`).
+ *
+ * @return array             An array of results.
+*/
+function get_where($table, $parameters, $sort = null) {
+  $sql = 'SELECT * FROM ' . $table . ' WHERE ';
+
+  foreach ($parameters as $column => $value) {
+    $sql = $sql . $column . '="' . $value . '" AND '/
+  }
+
+  $sql = substr($sql, 0, -4); # Remove the last ` AND`
+
+  if (is_null($sort)) {
+    $sql = $sql . ';'
+  } else {
+    $sql = $sql . ' order by ' . $sort . ';';
+  }
+
+  $query = run($sql);
 
   $results = array();
 
