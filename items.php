@@ -1,19 +1,5 @@
 <?php
   require('includes/base.php');
-
-  echo is_post();
-
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $result = insert('items', $_POST['item']);
-
-    if (is_int($result)) {
-      redirect('items.php?id=' . $result);
-    } else {
-      echo $result;
-    }
-  } else {
-    echo 'GET';
-  }
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -46,26 +32,22 @@
         </ul>
       </section>
     </nav>
-
-
     <main>
-      <form action="new-found.php" method="post">
-        <div class="row">
-          <div class="large-12 columns">
-            <label>
-              Description
-              <textarea name="item[description]" placeholder="Item description."></textarea>
-            </label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-12 columns">
-            <button type="submit">Save</button>
-          </div>
-        </div>
-      </form>
-    </main>
+      <?php
 
+        if (isset($_GET['id'])) {
+          $item = get_by_id('items', $_GET['id']);
+
+          show_item($item);
+          // echo '<article class="row">';
+          // echo '<p>' . $item['description'] . '</p>';
+          // echo '</article>';
+        } else {
+          $items = get_all('items');
+        }
+
+      ?>
+    </main>
     <script src="assets/jsc/vendor/jquery.js"></script>
     <script src="assets/jsc/foundation.min.js"></script>
     <script>

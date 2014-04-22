@@ -1,15 +1,29 @@
 <?php
 
-function is_post() {
-  $_SERVER['REQUEST_METHOD'] == 'POST';
+function redirect($uri) {
+  $root = 'http://localhost:8080/limbo/'; # Requires trailing slash
+
+  $url = $root . $uri;
+
+  header('Location: ' . $url);
 }
 
 function get_by_id($table, $id) {
-  return run('SELECT * FROM ' . $table . ' WHERE id = ' . $id . ';');
+  $query = run('SELECT * FROM ' . $table . ' WHERE id = ' . $id . ';');
+
+  return mysqli_fetch_array($query, MYSQLI_ASSOC);
 }
 
 function get_all($table) {
-  return run('SELECT * FROM ' . $table . ';');
+  $query = run('SELECT * FROM ' . $table . ';');
+
+  $results = array();
+
+  while ($result = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+    array_push($results, $result);
+  }
+
+  return $results;
 }
 
 /**
@@ -45,7 +59,7 @@ function run($sql, $return_id = false) {
   global $dbc;
 
   $result = mysqli_query($dbc, $sql);
-  $id     = mysqli_insert_id();
+  $id     = mysqli_insert_id($dbc);
   $error  = mysqli_error($dbc);
 
   if ($result == false) {
@@ -66,3 +80,5 @@ function check_results($results) {
     echo '<p>SQL ERROR = ' . mysqli_error($dbc) . '</p>';
   }
 }
+
+?>
