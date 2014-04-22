@@ -4,7 +4,8 @@ use limbo_development;
 
 create table if not exists items (
   id          int      auto_increment primary key,
-  description text     not null,
+  name        text     not null,
+  description text     not null default current_timestamp,
   timestamp   datetime not null,
   location    text     not null,
   email       text,
