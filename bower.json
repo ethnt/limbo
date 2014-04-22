@@ -1,0 +1,6 @@
+{
+  "name": "limbo",
+  "dependencies": {
+    "foundation": "~5.2.2"
+  }
+}
