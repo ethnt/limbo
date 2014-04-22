@@ -4,12 +4,6 @@
 
 <?php require('includes/partials/header.php'); ?>
 
-<?php
-  $items = get_all('items');
-
-  while ($row = mysqli_fetch_array($items, MYSQLI_ASSOC)) {
-    echo $row;
-  }
-?>
+<p>This is the index.</p>
 
 <?php require('includes/partials/footer.php'); ?>
