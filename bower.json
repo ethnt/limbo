@@ -1,6 +1,7 @@
 {
   "name": "limbo",
   "dependencies": {
-    "foundation": "~5.2.2"
+    "foundation": "~5.2.2",
+    "jquery": "~2.1.0"
   }
 }

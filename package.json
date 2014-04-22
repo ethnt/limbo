@@ -1,0 +1,27 @@
+{
+  "name": "limbo",
+  "version": "0.1.0-ab",
+  "description": "Lost and found.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-sass": "~0.7.1",
+    "gulp-bower": "~0.0.4",
+    "gulp": "~3.6.1",
+    "gulp-coffee": "^1.4.2",
+    "gulp-watch": "^0.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/eturk/limbo.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eturk/limbo/issues"
+  },
+  "homepage": "https://github.com/eturk/limbo"
+}
