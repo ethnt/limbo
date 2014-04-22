@@ -1,4 +1,4 @@
-<?php # CONNECT TO MySQL DATABASE.
+<?php
 
 $dbc = @mysqli_connect('localhost', 'root', '', 'limbo_development') OR die(mysqli_connect_error());
 

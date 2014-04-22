@@ -1,8 +1,6 @@
 <?php
   require('includes/base.php');
 
-  echo is_post();
-
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = insert('items', $_POST['item']);
 
