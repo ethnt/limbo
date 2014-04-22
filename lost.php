@@ -7,9 +7,7 @@
 <?php
   $items = run('select * from items where set="found";');
 
-  $item['description']; //=> description of the first item returned
-
-  foreach ($item in $items){}
+  foreach ($item in $items){
 
   echo "<div id= 'item'>
         <p id = 'item_name'> " . $item['name'] ."</p><p id='description'>". 
