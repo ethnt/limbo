@@ -8,7 +8,8 @@
     "gulp-bower": "~0.0.4",
     "gulp": "~3.6.1",
     "gulp-coffee": "^1.4.2",
-    "gulp-watch": "^0.6.2"
+    "gulp-watch": "^0.6.2",
+    "gulp-include": "^0.2.2"
   },
   "devDependencies": {},
   "scripts": {
