@@ -9,7 +9,7 @@ function show_item($item) {
         <li><strong>Found at:</strong> '. $item['location'] .'</li>
         <li><strong>Email:</strong> <a href="mailto:'. $item['email'] .'">'. $item['email'] .'</a></li>
       </ul>
-    </article>
+    </div>
   ';
 }
 
