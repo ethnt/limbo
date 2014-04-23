@@ -1,3 +1,4 @@
+  </div>
 </main>
 
 <script src="assets/jsc/vendor/jquery.js"></script>

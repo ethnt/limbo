@@ -14,10 +14,10 @@
 
 <?php require('includes/partials/header.php'); ?>
 
-<h3>Found an item?</h3>
+<h3>Lost an item?</h3>
 
-<form action="new-found.php" method="post">
-  <input type="hidden" name="item[status]" value="found" />
+<form action="new-lost.php" method="post">
+  <input type="hidden" name="item[status]" value="lost" />
   <div class="row">
     <div class="large-12 columns">
       <label>Name</label>
