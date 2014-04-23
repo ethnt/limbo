@@ -4,17 +4,15 @@
 
 <?php require('includes/partials/header.php'); ?>
 
+<h3>Lost Items</h3>
+
+<p>These items are missing!</p>
+
 <?php
-  $items = run('select * from items where set="found";');
 
-  foreach ($item in $items){
+  $items = get_where('items', array('status' => 'lost'), 'updated_at desc');
 
-  echo "<div id= 'item'>
-        <p id = 'item_name'> " . $item['name'] ."</p><p id='description'>". 
-        $item['description'] . " </p><p id='time_location'>" .
-        "found on " . $item['timestamp'] . "at" . $item['location'];
-		" </div>";
-    }
+  show_items($items);
 
 ?>
 

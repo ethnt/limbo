@@ -6,11 +6,12 @@ create table if not exists items (
   id          int      auto_increment primary key,
   name        text     not null,
   description text     not null,
-  timestamp   datetime not null default current_timestamp,
+  created_at  datetime not null default current_timestamp,
+  updated_at  datetime,
   location    text     not null,
   email       text,
   status      set('lost', 'found'),
-  claimed     boolean
+  claimed     boolean  default false
 );
 
 create table if not exists users (
