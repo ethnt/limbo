@@ -1,3 +1,3 @@
-drop database limbo;
+drop database limbo_development;
 
 source migrate.sql;
