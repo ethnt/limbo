@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="assets/dist/css/application.css" />
 
-    <script src="assets/jsc/vendor/modernizr.js"></script>
+    <script src="assets/vendor/modernizr/modernizr.js"></script>
   </head>
   <body>
     <nav class="top-bar" data-topbar>
