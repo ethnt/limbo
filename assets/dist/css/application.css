@@ -4738,4 +4738,8 @@ th.hide-for-touch {
   display: table-cell !important; }
 
 main {
-  margin-top: 2em; }
+  margin-top: 2em;
+  margin-bottom: 2em; }
+
+.panel + .panel {
+  margin-top: 1em; }

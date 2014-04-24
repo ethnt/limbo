@@ -15,7 +15,7 @@ function redirect($uri) {
 }
 
 /**
- * Redirect to a page.
+ * Check a user's credentials.
  *
  * @param  string $email    The email of the user.
  * @param  string $password The password of the user.
@@ -55,7 +55,7 @@ function request_method() {
 }
 
 /**
- * Get a row by ID.
+ * Get a record by ID.
  *
  * @param  string $table Table to fetch the row from.
  * @param  Array  $id    ID of the row.

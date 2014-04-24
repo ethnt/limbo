@@ -15,9 +15,14 @@
 
     show_item($item);
   } else {
-    $items = get_all('items', 'updated_at desc');
+    $items = get_where('items', array('claimed' => 0), 'updated_at desc');
+    $claimed = get_where('items', array('claimed' => 1), 'updated_at desc');
 
     show_items_table($items);
+
+    echo '<h3>Claimed Items</h3>';
+
+    show_items_table($claimed);
   }
 
 ?>
