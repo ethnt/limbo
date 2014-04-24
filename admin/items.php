@@ -12,7 +12,7 @@
       $result = update_by_id('items', $_POST['id'], $_POST['item']);
 
       if ($result == true) {
-        redirect('http://localhost:8080/limbo/admin/', 'index.php');
+        redirect('index.php');
       } else {
         echo $result;
       }
@@ -20,7 +20,7 @@
       $result = delete_by_id('items', $_POST['id']);
 
       if ($result == true) {
-        redirect('http://localhost:8080/limbo/admin/', 'index.php');
+        redirect('index.php');
       } else {
         echo $result;
       }

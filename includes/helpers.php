@@ -8,10 +8,8 @@
  *
  * @return null
  */
-function redirect($base = 'http://localhost:8080/limbo/', $uri) {
-  $url = $base . $uri;
-
-  header('Location: ' . $url);
+function redirect($uri) {
+  header('Location: ' . $uri);
 
   exit();
 }
@@ -260,7 +258,7 @@ function require_admin() {
   $user = get_by_id('users', $_SESSION['current_user']);
 
   if (is_null($user)) {
-    redirect('http://localhost:8080/limbo/admin/', 'login.php');
+    redirect('login.php');
   } else {
     return $user;
   }

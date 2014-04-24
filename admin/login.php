@@ -9,7 +9,7 @@
     } else {
       $_SESSION['current_user'] = $user['id'];
 
-      redirect('http://localhost:8080/limbo/admin/', 'index.php');
+      redirect('index.php');
     }
   }
 ?>

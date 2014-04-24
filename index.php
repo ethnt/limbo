@@ -5,7 +5,6 @@
 <?php require('includes/partials/header.php'); ?>
 
 <?php
-
   if (isset($_GET['id'])) {
     $item = get_by_id('items', $_GET['id']);
 
