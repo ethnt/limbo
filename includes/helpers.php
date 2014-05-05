@@ -35,14 +35,34 @@ function check_credentials($email, $password) {
 }
 
 /**
- * Make MD5 a little easier to understand.
+ * Check if two strings are the same. Honestly, this should be easier in PHP.
+ *
+ * @param string $str1 One string.
+ * @param string $str2 Two string.
+ *
+ * @return boolean     True or false
+ */
+function equality($str1, $str2) {
+  if (isset($str1) && isset($str2)) {
+    if ($str1 == $str2) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
+/**
+ * Make SHA1 a little easier to understand.
  *
  * @param  string $str The string to encrypt.
  *
  * @return string      The encrypted string.
  */
 function encrypt($str) {
-  return md5($str);
+  return sha1($str);
 }
 
 /**

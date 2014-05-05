@@ -25,6 +25,7 @@
         </ul>
         <ul class="left">
           <li><a href="items.php">Items</a></li>
+          <li><a href="users.php">Users</a></li>
         </ul>
       </section>
     </nav>
