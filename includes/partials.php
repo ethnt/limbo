@@ -5,10 +5,19 @@
       <div class="row panel">
         <h4><a href="items.php?id='. $item['id'] .'">'. $item['name'] .'</a></h1>
         <blockquote><p>'. $item['description'] .'</p></blockquote>
-        <ul>
-          <li><strong>Found at:</strong> '. $item['location'] .'</li>
-          <li><strong>Email:</strong> <a href="mailto:'. $item['email'] .'">'. $item['email'] .'</a></li>
-        </ul>
+        <ul>';
+
+          if ($item['status'] == 'found') {
+            echo '<li><strong>Found at:</strong> '. $item['location'] .'</li>';
+          } else {
+            echo '<li><strong>Lost at:</strong> '. $item['location'] .'</li>';
+          }
+
+          if (!empty($item['email'])) {
+            echo '<li><strong>Email:</strong> <a href="mailto:'. $item['email'] .'">'. $item['email'] .'</a></li>';
+          }
+
+        echo '</ul>
       </div>
     ';
   }
@@ -139,6 +148,7 @@
         <thead>
           <tr>
             <th>ID</th>
+            <th>Username</th>
             <th>Email</th>
             <td>Level</th>
           </tr>
@@ -150,6 +160,7 @@
       echo '
         <tr>
           <td><a href="users.php?id='. $user['id'] .'">'. $user['id'] .'</a></td>
+          <td>'. $user['username'] .'</td>
           <td>'. $user['email'] .'</td>
           <td>'. $user['level'] .'</td>
         </tr>
@@ -166,6 +177,16 @@
       <form action="'. $resource .'" method="post">
         <input type="hidden" name="action" value="'. $action .'" />
         <input type="hidden" name="id" value="'. $user['id'] .'" />
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Username</label>';
+            if (strlen($user['username']) > 0) {
+              echo '<input name="user[username]" placeholder="Username of user" type="text" value="'. $user['username'] .'" />';
+            } else {
+              echo '<input name="user[username]" placeholder="Username of user" type="text" value="" />';
+            }
+          echo '</div>
+        </div>
         <div class="row">
           <div class="large-12 columns">
             <label>Email</label>';

@@ -2,7 +2,7 @@
   require('../includes/base.php');
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user = check_credentials($_POST['user']['email'], $_POST['user']['password'])[0];
+    $user = check_credentials($_POST['user']['username'], $_POST['user']['password'])[0];
 
     if ($user == false) {
       echo 'nope!';
@@ -23,9 +23,9 @@
   <div class="row">
     <div class="large-12 columns">
       <label>
-        Email
+        Username
       </label>
-        <input name="user[email]" placeholder="Email" type="email" />
+      <input name="user[username]" placeholder="Username" type="text" />
     </div>
   </div>
   <div class="row">
@@ -33,7 +33,7 @@
       <label>
         Password
       </label>
-        <input name="user[password]" placeholder="Password" type="password" />
+      <input name="user[password]" placeholder="Password" type="password" />
     </div>
   </div>
   <div class="row">

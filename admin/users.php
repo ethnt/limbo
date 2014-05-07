@@ -20,7 +20,7 @@
       if (is_int($result)) {
         redirect('users.php?id=' . $result);
       } else {
-        echo $result;
+        $errors = $result;
       }
     }
 
@@ -62,6 +62,9 @@
 <?php require('../includes/partials/admin/header.php'); ?>
 
 <?php
+  if (isset($errors)) {
+    echo $errors;
+  }
 
   if (isset($_GET['id'])) {
     $user = get_by_id('users', $_GET['id']);

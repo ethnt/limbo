@@ -17,15 +17,15 @@ function redirect($uri) {
 /**
  * Check a user's credentials.
  *
- * @param  string $email    The email of the user.
+ * @param  string $username The email of the user.
  * @param  string $password The password of the user.
  *
  * @return boolean          If check fails, returns `false`.
  * @return Array            If check succeeds, will return an associative
  *                          array with the user in index 0.
  */
-function check_credentials($email, $password) {
-  $user = get_where('users', array('email' => $email, 'password' => encrypt($password)));
+function check_credentials($username, $password) {
+  $user = get_where('users', array('username' => $username, 'password' => encrypt($password)));
 
   if (empty($user)) {
     return false;
