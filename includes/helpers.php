@@ -216,6 +216,14 @@ function update_by_id($table, $id, $attributes) {
   return $result;
 }
 
+/**
+ * Delete a record by ID.
+ *
+ * @param  string  $table The table the record is in.
+ * @param  string  $id    The ID of the record.
+ *
+ * @return boolean        True if works.
+ */
 function delete_by_id($table, $id) {
   $sql = 'DELETE FROM '. $table .' WHERE id ='. $id .';';
 
@@ -224,6 +232,28 @@ function delete_by_id($table, $id) {
   return $query;
 }
 
+/**
+ * Update a record by ID.
+ *
+ * @param string $table  The table the record is in.
+ * @param string $column The column you're searching through.
+ * @param string $query  The string you're searching for.
+ *
+ * @return array        The results.
+ */
+function search($table, $column, $query) {
+  $sql = 'SELECT * FROM '. $table .' WHERE '. $column .' LIKE "%'. $query .'%"';
+
+  $ran = run($sql);
+
+  $results = array();
+
+  while ($result = mysqli_fetch_array($ran, MYSQLI_ASSOC)) {
+    array_push($results, $result);
+  }
+
+  return $results;
+}
 
 /**
  * Take an associative array and make two comma delimited arrays of the

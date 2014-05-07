@@ -27,6 +27,16 @@
           <li><a href="lost.php">Lost</a></li>
           <li><a href="found.php">Found</a></li>
           <li><a href="admin/">Admin</a></li>
+          <li class="has-form">
+            <form class="row collapse" action="search.php" method="get">
+              <div class="large-8 small-9 columns">
+                <input name="q" type="text" placeholder="Search for item">
+              </div>
+              <div class="large-4 small-3 columns">
+                <button type="submit" class="button expand">Search</button>
+              </div>
+            </form>
+          </li>
         </ul>
       </section>
     </nav>
