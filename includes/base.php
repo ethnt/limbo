@@ -1,9 +1,9 @@
 <?php
 
-  require('connect.php');
-  require('helpers.php');
-  require('partials.php');
+require('connect.php');
+require('helpers.php');
+require('partials.php');
 
-  session_start();
+session_start();
 
 ?>
